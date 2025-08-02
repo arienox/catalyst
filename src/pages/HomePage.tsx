@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import maskImage from '../assets/mask without bg 1.jpg';
 
 const navItems = [
   { path: '/tattoo', label: '. TATTOO .' },
@@ -34,8 +35,16 @@ const itemVariants = {
 const HomePage: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 relative overflow-hidden">
+      <motion.img
+        src={maskImage}
+        alt="Catalyst mask logo"
+        className="w-40 h-40 object-contain mb-8"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      />
       <motion.h1
-        className="absolute top-20 text-2xl text-brand-primary tracking-[0.2em]"
+        className="text-2xl text-brand-primary tracking-[0.2em] mb-8"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
